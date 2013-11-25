@@ -13,11 +13,9 @@
         //SingleEngineFile:'',
         appFiles:[
             'src/constants.js',
+            'src/constants.js',
             'src/resource.js',
-            'src/splash.js',
-            'src/introduction.js',
-            'src/bookApp.js', //add your own files in order here
-            'src/shareR.js'
+            'src/bookApp.js' //add your own files in order here
         ]
     };
 

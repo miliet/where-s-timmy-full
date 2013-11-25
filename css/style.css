@@ -1,0 +1,174 @@
+@font-face
+{
+    font-family: 'ArialRoundedMTBold';
+    src: url('../res/ArialRoundedMTBold.ttf');
+}
+
+body
+{
+    padding: 0;
+    margin: 0;
+}
+
+body, canvas, div
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#gameCanvas
+{
+    margin: 0;
+    padding:0;
+}
+
+/* Extra small devices (phones, less than 480px) */
+@media (max-width: 480)
+{
+    #gameCanvas{
+        max-width: 1024px;
+    }
+}
+
+/* Small devices (tablets) */
+@media (min-width: 480) and (max-width: 768)
+{
+    #gameCanvas{
+        max-width: 1024px;
+    }
+}
+
+/* Medium devices (desktops, 768px and up) */
+@media (min-width: 768) and (max-width: 1200)
+{
+    #gameCanvas{
+        max-width: 1024px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200)
+{
+    #gameCanvas{
+        max-width: 1024px;
+    }
+}
+
+#landscape
+{
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+#landscapeMargin
+{
+    display: block;
+    margin: 1%;
+    width: 98%;
+    height: 98%;
+}
+
+#landscapeTable
+{
+    display: Table;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+#landscapeCell
+{
+    margin: 0 auto;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#landscapeContent
+{
+    margin: 0 auto;
+    display: block;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border:3px solid #3E7EC6;
+    padding: 20px;
+}
+
+ #portrait
+ {
+     position: fixed;
+     left:0;
+     top:0;
+     z-index: 9999;
+     display: block;
+     width: 100%;
+     height: 100%;
+     font-family: 'ArialRoundedMTBold';
+     background-color: white;
+ }
+
+#portraitMargin
+{
+    margin: 1%;
+    width: 98%;
+    height: 98%;
+    display: block;
+}
+
+#portraitTable
+{
+    display: Table;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+#portraitCell
+{
+    margin: 0 auto;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+ #portraitContent
+ {
+     margin: 0 auto;
+     display: block;
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     border-radius: 20px;
+     border:3px solid #3E7EC6;
+     padding: 10px;
+ }
+
+ .img-responsive
+ {
+     max-width: 100%;
+     height: auto;
+ }
+
+ /* portrait */
+ @media screen and (orientation:portrait) {
+     #portrait{
+         display:block;
+         visibility: visible;
+     }
+ }
+
+ /* landscape */
+ @media screen and (orientation:landscape) {
+     /* landscape-specific styles */
+     #portrait{
+         display:none;
+         visibility: hidden;
+     }
+ }

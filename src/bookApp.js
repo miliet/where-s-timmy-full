@@ -33,12 +33,14 @@ var textLayer = cc.Layer.extend({
         this.owner=scene;
         this.labels = new Array();
         if(languages[this.owner.getCurrentIdLanguage()][currentPage]!="") this.textPrint(languages[this.owner.getCurrentIdLanguage()][currentPage]);
-
         this.schedule(this.playWithDelay, transitionTime);
         return true;
     },playWithDelay:function(dt){
-        this.owner.controllersL.playSoundLogistic();
-        this.unschedule(this.playWithDelay);
+        /*For fix a mobile bug*/
+        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile)){
+            this.owner.controllersL.playSoundLogistic();
+            this.unschedule(this.playWithDelay);
+        }
     },textPrint:function(text) {
 
         var size = cc.Director.getInstance().getWinSize();
@@ -53,8 +55,6 @@ var textLayer = cc.Layer.extend({
         var charHeight;
         var charWidth;
         var totalWidth;
-
-
 
         var charLabel= cc.LabelTTF.create(" ", fntArialRoundedMTBoldStr, fntSize);
         charHeight=charLabel.getContentSize().height;
@@ -191,83 +191,8 @@ var textLayer = cc.Layer.extend({
             }
             mm=mm+lines[i].length;
         }
-    },runHighlights:function() {
-        var idLanguage=this.owner.getCurrentIdLanguage();
-        if(this.labels != null && this.labels.length>=highlights[idLanguage][currentPage].length){
-            var i;
-            for (i in highlights[idLanguage][currentPage]){
-                if(highlights[idLanguage][currentPage][i]>0.0){
-                    this.labels[i].runAction(cc.Sequence.create(
-                        cc.DelayTime.create(highlights[idLanguage][currentPage][i]),
-                        cc.CallFunc.create(function(node) {
-                            node.setColor(highlightColor);
-                        }, this),
-                        cc.DelayTime.create(this.getDelayHighlight(idLanguage,i)),
-                        cc.CallFunc.create(function(node) {
-                            this.setLabelColorStandard(node.getTag()-1);
-                        }, this)
-                    ));
-                }
-            }
-        }
     },setLabelColorStandard:function(index) {
-        if (coloredWords[this.owner.getCurrentIdLanguage()][currentPage].indexOf(index) > -1) {
-            this.labels[index].setColor(this.getColorForAWord(index));
-        } else {
-            this.labels[index].setColor(cc.c3b(0, 0, 0));
-        }
-    },stopHighlights:function() {
-        var idLanguage=this.owner.getCurrentIdLanguage();
-        if(this.labels != null && this.labels.length>=highlights[idLanguage][currentPage].length){
-            var i;
-            for (i in highlights[idLanguage][currentPage]){
-                if(highlights[idLanguage][currentPage][i]>0.0){
-                    this.labels[i].stopAllActions();
-                    this.setLabelColorStandard(this.labels[i].getTag()-1);
-                }
-            }
-        }
-    },getColorForAWord:function(_index) {
-        var index=0;
-        var i,j;
-        for (i=0;i<pages;i++){
-            if(currentPage==i){
-                var position=coloredWords[this.owner.getCurrentIdLanguage()][currentPage].indexOf(_index)
-                for (j in coloredWords[this.owner.getCurrentIdLanguage()][i]){
-                    if (position==j){
-                        return wordColors[index];
-                    }else{
-                        index++;
-                        if (index>=wordColors.length){
-                            index=0;
-                        }
-                    }
-                }
-            }else{
-                for (j in coloredWords[this.owner.getCurrentIdLanguage()][i]){
-                    index++;
-                    if (index>=wordColors.length){
-                        index=0;
-                    }
-                }
-            }
-        }
-        return cc.c3b(0, 0, 0);
-    },getDelayHighlight:function(idLanguage,index) {
-
-        var ini= highlights[idLanguage][currentPage][index];
-        var fin=0;
-        for (var i=index+1; i<highlights[idLanguage][currentPage].length;i++){
-            if (highlights[idLanguage][currentPage][i]>0){
-                fin=highlights[idLanguage][currentPage][i];
-                break;
-            }
-        }
-        if (fin==0 || (fin-ini)>1.5 ){
-            return highlightTime;
-        }else{
-            return (fin-ini);
-        }
+        this.labels[index].setColor(cc.c3b(0, 0, 0));
     }
 });
 
@@ -355,12 +280,15 @@ var controllersLayer = cc.Layer.extend({
 
         var menuSoundReplay = cc.Menu.create(menuItemImageSoundReplay);
         menuSoundReplay.setPosition(cc.PointZero());
-        menuSoundReplay.setOpacity(0.0);
+
+
+        /*For fix a mobile bug*/
+        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile)){
+            menuSoundReplay.setOpacity(0.0);
+            menuSoundReplay.setTouchEnabled(false);
+        }
         menuSoundReplay.setTag(menuSoundReplayTag);
-        menuSoundReplay.setTouchEnabled(false);
         this.addChild(menuSoundReplay, 0);
-
-
 
         /*Logo*/
         if (currentPage > 1)
@@ -392,9 +320,8 @@ var controllersLayer = cc.Layer.extend({
             btnWidth=menuItemImageBackward.getContentSize().width;
         }
 
-
         /*Forward*/
-        if (currentPage < pages)
+        if (currentPage < pages-1)
         {
             var menuItemImageForward = cc.MenuItemImage.create(btnForwardNormal,btnForwardSelected,
                 function () {
@@ -402,11 +329,7 @@ var controllersLayer = cc.Layer.extend({
                     this.doSomethingToChangeThePage();
                     currentPage++;
                     var director = cc.Director.getInstance();
-                    if(currentPage==pages-1){
-                        director.replaceScene(cc.TransitionFade.create(transitionTime,new shareScene(),cc.c3b(255, 255, 255)));
-                    }else{
-                        director.replaceScene(cc.TransitionFade.create(transitionTime,new bookScene(),cc.c3b(255, 255, 255)));
-                    }
+                    director.replaceScene(cc.TransitionFade.create(transitionTime,new bookScene(),cc.c3b(255, 255, 255)));
                 },this);
 
             menuItemImageForward.setAnchorPoint(cc.p(1,0.5));
@@ -418,6 +341,93 @@ var controllersLayer = cc.Layer.extend({
 
             btnWidth=menuItemImageForward.getContentSize().width;
         }
+
+        /*Languages*/
+        var countLanguages=1;
+        var menuItemImageArabian = cc.MenuItemImage.create(btnArabeNormal,btnArabeSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageArabian.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageArabian.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageBrazilian = cc.MenuItemImage.create(btnBrasilNormal,btnBrasilSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageBrazilian.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageBrazilian.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageSpanish = cc.MenuItemImage.create(btnEspanolNormal,btnEspanolSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageSpanish.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageSpanish.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageFrench = cc.MenuItemImage.create(btnFranceNormal,btnFranceSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageFrench.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageFrench.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageGerman = cc.MenuItemImage.create(btnHaitiNormal,btnHaitiSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageGerman.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageGerman.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageEnglish= cc.MenuItemImage.create(btnInglishNormal,btnInglishSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageEnglish.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageEnglish.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageCatalan = cc.MenuItemImage.create(btnIslandesNormal,btnIslandesSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageCatalan.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageCatalan.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageItalian = cc.MenuItemImage.create(btnItalianNormal,btnItalianSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageItalian.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageItalian.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageJapanese = cc.MenuItemImage.create(btnJaponNormal,btnJaponSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+
+        menuItemImageJapanese.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageJapanese.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+        countLanguages++;
+        var menuItemImageChinese = cc.MenuItemImage.create(btnXinaNormal,btnXinaSelected,
+            function () {
+                this.doSomethingToPressButton();
+                this.changeLanguage();
+            },this);
+        menuItemImageChinese.setAnchorPoint(cc.p(0,0.5));
+        menuItemImageChinese.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
+
+        var menuLanguages = cc.Menu.create(menuItemImageArabian,menuItemImageBrazilian,menuItemImageSpanish,menuItemImageFrench,menuItemImageGerman,menuItemImageEnglish,menuItemImageCatalan,menuItemImageItalian,menuItemImageJapanese,menuItemImageChinese);
+        menuLanguages.setPosition(cc.PointZero());
+        this.addChild(menuLanguages, 0);
 
         this.setTouchEnabled(true);
 
@@ -434,14 +444,15 @@ var controllersLayer = cc.Layer.extend({
     },playSoundLogistic:function(){
         if(sounds[this.owner.getCurrentIdLanguage()][currentPage]!=""  && soundStatus)
         {
+            /*For fix a mobile bug*/
+            if(isFirstTime)
+                isFirstTime=false;
             cc.AudioEngine.getInstance().playMusic(sounds[this.owner.getCurrentIdLanguage()][currentPage]);
-            this.owner.textL.runHighlights();
             if(this.soundFlag!=-1)this.hideMenuSoundReplace();
             else{this.soundFlag=1}
         }
     },stopSoundLogistic:function(){
         if (cc.AudioEngine.getInstance().isMusicPlaying()) cc.AudioEngine.getInstance().stopMusic(true);
-        this.owner.textL.stopHighlights();
     },doSomethingToPressButton:function () {
         if(soundStatus)cc.AudioEngine.getInstance().playEffect(soundBtnStandard);
     },showMenuSoundReplace:function () {
@@ -458,10 +469,11 @@ var controllersLayer = cc.Layer.extend({
             this.getChildByTag(menuSoundReplayTag).setTouchEnabled(false);
             this.getChildByTag(menuSoundReplayTag).runAction(cc.FadeOut.create(btnFadeTime));
         }
+    },changeLanguage: function(){
+
     }
 
 });
-
 
 var bookScene = cc.Scene.extend({
     imageL:null,
@@ -472,7 +484,6 @@ var bookScene = cc.Scene.extend({
 
         var size = cc.Director.getInstance().getWinSize();
         this.addChild(cc.LayerColor.create(cc.c4b(255, 255, 255, 255), size.width,size.height),0);
-
 
         this.imageL = new imageLayer();    /*Dependence between imageL and TextL and controllersL */
         this.imageL.init(this);
@@ -487,13 +498,6 @@ var bookScene = cc.Scene.extend({
         this.addChild(this.textL,2);
 
     },getCurrentIdLanguage:function() {
-        var currentLanguageType = cc.Application.getCurrentLanguage();
-        switch (currentLanguageType) {
-            case cc.LANGUAGE_ENGLISH:
-                 return idEnglish;
-                break;
-            default:
-                return idEnglish;
-        }
+        return idLanguageSelected;
     }
 });

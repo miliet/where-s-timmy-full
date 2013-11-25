@@ -16,7 +16,11 @@ var cocos2dApp = cc.Application.extend({
         }
         // initialize director
         var director = cc.Director.getInstance();
+        var designSize = this.getDesignSize();
+        var resourceSize = cc.size(1024, 768);
 
+        director.setContentScaleFactor(resourceSize.width / designSize.width);
+        cc.EGLView.getInstance().setDesignResolutionSize(designSize.width, designSize.height, cc.RESOLUTION_POLICY.SHOW_ALL);
         // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
         //director.enableRetinaDisplay(true);
 
@@ -32,6 +36,33 @@ var cocos2dApp = cc.Application.extend({
         }, this);
 
         return true;
+    }, getDesignSize:function () {
+        var screenSize = cc.EGLView.getInstance().getFrameSize();
+        var designSize = cc.size(1024,768);
+        //we work only in landscape
+        //we are check the orientation
+        if (screenSize.height> screenSize.width)
+            screenSize = cc.size(screenSize.height,screenSize.width);
+        if (screenSize.width > designSize.width && screenSize.height>designSize.height)
+            return designSize;
+        if (screenSize.width > designSize.width)
+            return cc.size(this.getWidthScaled(screenSize.height,designSize.height,designSize.width), screenSize.height);
+        if (screenSize.height > designSize.height)
+            return cc.size(screenSize.width,this.getHeightScaled(screenSize.width,designSize.width,designSize.height));
+
+        var designSizeAux=cc.size(designSize.width,designSize.height);
+        var percent = 99;
+        while (designSizeAux.width > screenSize.width || designSizeAux.height > screenSize.height){
+            designSizeAux = cc.size(((designSize.width * percent)/100),this.getHeightScaled(((designSize.width * percent)/100),designSize.width,designSize.height));
+            percent--;
+            if (percent ==0)
+                break;
+        }
+        return designSizeAux;
+    }, getHeightScaled:function(desiredWidth,originalWidth,originalHeight){
+        return ((desiredWidth*originalHeight) / originalWidth);
+    }, getWidthScaled:function(desiredHeight,originalHeight,originalWidth){
+        return ((desiredHeight*originalWidth) / originalHeight);
     }
 });
-var myApp = new cocos2dApp(splashScene);
+var myApp = new cocos2dApp(bookScene);

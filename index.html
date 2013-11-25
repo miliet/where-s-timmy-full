@@ -1,14 +1,10 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>WHERE IS TIMMY</title>
-        <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
 
         <!-- for Google -->
         <meta name="description" content="Cuento pedagógico en inglés para principiantes en la lengua extranjera. Los pequeños lectores pueden leer y escuchar el audio. La protagonista es Lucy, una niña alegre e inquieta que tiene un susto por no tener paciencia. Este cuento trata del valor de la PACIENCIA." />
         <meta name="keywords" content="Cuento, Bilingüe, Inglés, Pedagógico, Infantil, Pan Caliente" />
-
         <meta name="author" content="Emilio Roger Ciurana Simó" />
         <meta name="copyright" content="Editorial Nadal-Edarca 2013" />
         <meta name="application-name" content="Where's Timmy" />
@@ -16,7 +12,7 @@
         <!-- for Facebook -->
         <meta property="og:title" content="Hot Bread" />
         <meta property="og:type" content="article"/>
-        <meta property="og:image" content="http://www.pedagogiaescolar.com/where-s-timmy/res/page0.png" />
+        <meta property="og:image" content="http://www.pedagogiaescolar.com/where-s-timmy-full/res/page0.png" />
         <meta property="og:url" content="http://www.pedagogiaescolar.com/" />
         <meta property="og:description" content="Cuento pedagógico en inglés para principiantes en la lengua extranjera. Los pequeños lectores pueden leer y escuchar el audio. La protagonista es Lucy, una niña alegre e inquieta que tiene un susto por no tener paciencia. Este cuento trata del valor de la PACIENCIA." />
         <meta property="og:site_name" content="Pedagogía Escolar Editorial Nadal-Edarca"/>
@@ -25,19 +21,20 @@
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Where's Timmy" />
         <meta name="twitter:description" content="Cuento pedagógico en inglés para principiantes en la lengua extranjera. Los pequeños lectores pueden leer y escuchar el audio. La protagonista es Lucy, una niña alegre e inquieta que tiene un susto por no tener paciencia. Este cuento trata del valor de la PACIENCIA." />
-        <meta name="twitter:image" content="http://www.pedagogiaescolar.com/where-s-timmy/res/page0.png" />
+        <meta name="twitter:image" content="http://www.pedagogiaescolar.com/where-s-timmy-full/res/page0.png" />
 
-
-
-
-        <meta name="viewport" content="width=1024,height=768,user-scalable=no"/>
-        <meta name="screen-orientation" content="portrait"/>
+        <!-- Cocos2d -->
+        <meta name="screen-orientation" content="landscape"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="full-screen" content="yes"/>
         <meta name="x5-fullscreen" content="true"/>
-
-
         <script type="text/javascript">
+            function getHeightScaled(desiredWidth,originalWidth,originalHeight){
+                return ((desiredWidth*originalHeight) / originalWidth);
+            }
+            function getWidthScaled(desiredHeight,originalHeight,originalWidth){
+                return ((desiredHeight*originalWidth) / originalHeight);
+            }
             var $buoop = {vs:{i:9,f:20,o:11,s:5,n:9}}
             $buoop.ol = window.onload;
             window.onload=function(){
@@ -49,27 +46,74 @@
             }
         </script>
 
-
-        <style>
-
-            body, canvas, div {
-                -moz-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                -khtml-user-select: none;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            }
-        </style>
+        <!-- Standard -->
+        <meta charset="utf-8">
+        <title>WHERE IS TIMMY</title>
+        <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+        <link rel="stylesheet" href="css/style.css" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 
     </head>
-    <body style="text-align: center;background: #f2f6f8;">
-        <div style="display:inline-block;width:auto; margin: 0 auto; background: black; border:5px solid black; border-radius: 10px; box-shadow: 0 5px 50px #333">
-            <canvas id="gameCanvas" width="1024" height="768"></canvas>
+    <body>
+    <div id="portrait">
+        <div id="portraitMargin">
+            <div id="portraitTable">
+                <div id="portraitCell">
+                    <div id="portraitContent">
+                        <img src="res/imgWebLandscape.png" class="img-responsive" alt="Put your device in landscape"/>
+                        <h3>Put your device in landscape</h3>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <div id="landscape">
+        <div id="landscapeMargin">
+            <div id="landscapeTable">
+                <div id="landscapeCell">
+                    <div id="landscapeContent">
+                        <canvas id="gameCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+       var canvas = document.getElementById('gameCanvas'),context = canvas.getContext('2d');
+       var screenWidth = window.innerWidth;
+       var screenHeight = window.innerHeight;
 
-        <a id="twitter" style="display:none; visibility: hidden;" href="#" onclick=" window.open('https://twitter.com/share?text=Ha visto este cuento y quiere compartirlo con vosotros: &url='+encodeURIComponent(location.href), 'twitter-share-dialog','width=626,height=456');return false;"></a>
-        <a id="facebook" style="display:none; visibility: hidden;" href="#" onclick=" window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog','width=626,height=436');return false;"></a>
-        <a id="mail" style="display:none; visibility: hidden;" href="mailto:?subject=Where's Timmy&body=Cuento pedagógico en inglés para principiantes en la lengua extranjera. Los pequeños lectores pueden leer y escuchar el audio. La protagonista es Lucy, una niña alegre e inquieta que tiene un susto por no tener paciencia. Este cuento trata del valor de la PACIENCIA. http://www.pedagogiaescolar.com/where-s-timmy/"></a>
-        <script src="cocos2d.js"></script>
+       var designWidth = 1024;
+       var designHeight= 768;
+
+       if (screenHeight> screenWidth){
+           var screenWidth = window.innerHeight
+           var screenHeight = window.innerWidth;
+       }
+       if (screenWidth > designWidth && screenHeight>designHeight){
+           canvas.width = designWidth;
+           canvas.height = designHeight;
+       }else if (screenWidth > designWidth && screenHeight < designHeight){
+           canvas.width = getWidthScaled(screenHeight,designHeight,designWidth);
+           canvas.height = screenHeight;
+       } else if(screenHeight > designHeight && screenWidth < designWidth){
+           canvas.width = screenWidth
+           canvas.height = getHeightScaled(screenWidth,designWidth,designHeight);
+       }else{
+           var designAuxWidth = designWidth;
+           var designAuxHeight = designHeight;
+           var percent = 99;
+           while (designAuxWidth > screenWidth || designAuxHeight > screenHeight){
+               designAuxWidth = ((designWidth * percent)/100);
+               designAuxHeight= getHeightScaled(((designWidth * percent)/100),designWidth,designHeight);
+               percent--;
+               if (percent ==0)
+                break;
+           }
+           canvas.width = designAuxWidth;
+           canvas.height = designAuxHeight;
+        }
+    </script>
+    <script src="cocos2d.js"></script>
     </body>
 </html>
