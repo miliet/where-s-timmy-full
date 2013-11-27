@@ -25,26 +25,26 @@ var btnSoundDisabledSelected= "res/btnSoundDisabledSelected.png";
 var btnSoundReplayNormal= "res/btnSoundReplayNormal.png";
 var btnSoundReplaySelected= "res/btnSoundReplaySelected.png";
 
-var btnArabeNormal = "res/btnArabeNormal.png";
-var btnArabeSelected = "res/btnArabeSelected.png";
-var btnBrasilNormal = "res/btnBrasilNormal.png";
-var btnBrasilSelected = "res/btnBrasilSelected.png";
-var btnEspanolNormal = "res/btnBrasilNormal.png";
-var btnEspanolSelected = "res/btnBrasilSelected.png";
-var btnFranceNormal = "res/btnFranceNormal.png";
-var btnFranceSelected = "res/btnFranceSelected.png";
-var btnHaitiNormal = "res/btnHaitiNormal.png";
-var btnHaitiSelected = "res/btnHaitiSelected.png";
-var btnInglishNormal = "res/btnBrasilNormal.png";
-var btnInglishSelected = "res/btnInglishSelected.png";
-var btnIslandesNormal = "res/btnIslandesNormal.png";
-var btnIslandesSelected = "res/btnIslandesSelected.png";
+var btnArabicNormal = "res/btnArabicNormal.png";
+var btnArabicSelected = "res/btnArabicSelected.png";
+var btnBrazilianNormal = "res/btnBrazilianNormal.png";
+var btnBrazilianSelected = "res/btnBrazilianSelected.png";
+var btnSpanishNormal = "res/btnBrazilianNormal.png";
+var btnSpanishSelected = "res/btnBrazilianSelected.png";
+var btnFrenchNormal = "res/btnFrenchNormal.png";
+var btnFrenchSelected = "res/btnFrenchSelected.png";
+var btnGermanNormal = "res/btnGermanNormal.png";
+var btnGermanSelected = "res/btnGermanSelected.png";
+var btnEnglishNormal = "res/btnBrazilianNormal.png";
+var btnEnglishSelected = "res/btnEnglishSelected.png";
+var btnCatalanNormal = "res/btnCatalanNormal.png";
+var btnCatalanSelected = "res/btnCatalanSelected.png";
 var btnItalianNormal = "res/btnItalianNormal.png";
 var btnItalianSelected = "res/btnItalianSelected.png";
-var btnJaponNormal = "res/btnJaponNormal.png";
-var btnJaponSelected = "res/btnJaponSelected.png";
-var btnXinaNormal = "res/btnXinaNormal.png";
-var btnXinaSelected= "res/btnXinaSelected.png";
+var btnJapaneseNormal = "res/btnJapaneseNormal.png";
+var btnJapaneseSelected = "res/btnJapaneseSelected.png";
+var btnChineseNormal = "res/btnChineseNormal.png";
+var btnChineseSelected= "res/btnChineseSelected.png";
 
 var soundBtnStandard= "res/soundBtnStandard.wav";
 
@@ -136,75 +136,10 @@ imgsEnglish  [9]  = imgEnglishPage9;
 
 /*******************************/
 
-//Spanish
-/*******************************/
-
-var idSpanish=1;
-
-var imgSpanishPage0 = "res/page0.png";
-var imgSpanishPage1 = "res/page1.png";
-var imgSpanishPage2 = "res/page2.png";
-var imgSpanishPage3 = "res/page3.png";
-var imgSpanishPage4 = "res/page4.png";
-var imgSpanishPage5 = "res/page5.png";
-var imgSpanishPage6 = "res/page6.png";
-var imgSpanishPage7 = "res/page7.png";
-var imgSpanishPage8 = "res/page8.png";
-var imgSpanishPage9 = "res/page9.png";
-
-var soundSpanishPage0= "res/page0_esES.wav";
-var soundSpanishPage1= "res/page1_esES.wav";
-var soundSpanishPage2= "res/page2_esES.wav";
-var soundSpanishPage3= "res/page3_esES.wav";
-var soundSpanishPage4= "res/page4_esES.wav";
-var soundSpanishPage5= "res/page5_esES.wav";
-var soundSpanishPage6= "res/page6_esES.wav";
-var soundSpanishPage7= "res/page7_esES.wav";
-var soundSpanishPage8= "res/page8_esES.wav";
-var soundSpanishPage9= "res/page9_esES.wav";
-
-var languageSpanish = new Array(pages);
-languageSpanish [0]  = "¿Dónde está Timy?";
-languageSpanish [1]  = "Lucy es una niña que tiene un peluche de muchos colores. ¡Se llama Timy!";
-languageSpanish [2]  = "Lucy desayuna con Timy y por la noche duerme con él.";
-languageSpanish [3]  = "Cada día, al volver de la escuela, va a la habitación a dar un beso a Timy.";
-languageSpanish [4]  = "- ¡Oh! ¡Oh! ¡Timy no está! – Lucy llora. - ¡Mami, papi, Timy no está en la habitación!\n¿Dónde está? ¿Qué le ha pasado?";
-languageSpanish [5]  = "Su mamá pregunta a Lucy dónde ha dejado a Timy esta mañana y Lucy, muy triste, contesta:\n- ¡En mi cama!";
-languageSpanish [6]  = "- ¡Ay, Lucy! – dice su mamá. - ¡Vamos a buscarlo! Pero pienso que debes ser más ordenada.";
-languageSpanish [7]  = "Cuando llegan a la habitación Timy no está en la cama y mamá  lo busca por la habitación.";
-languageSpanish [8]  = " ¡Mira! ¡Aquí tenemos a Timy, medio escondido o medio perdido! ¿Qué opinas, Lucy?";
-languageSpanish [9]  = "- Te quiero Timy – dice Lucy. Ahora, cada día, Lucy y Timy dedican algunos minutos a ordenar los juguetes.";
-
-var soundsSpanish = new Array(pages);
-soundsSpanish  [0]  = soundSpanishPage0;
-soundsSpanish [1]  = soundSpanishPage1;
-soundsSpanish [2]  = soundSpanishPage2;
-soundsSpanish [3]  = soundSpanishPage3;
-soundsSpanish [4]  = soundSpanishPage4;
-soundsSpanish [5]  = soundSpanishPage5;
-soundsSpanish [6]  = soundSpanishPage6;
-soundsSpanish [7]  = soundSpanishPage7;
-soundsSpanish [8]  = soundSpanishPage8;
-soundsSpanish [9]  = soundSpanishPage9;
-
-var imgsSpanish = new Array(pages);
-imgsSpanish  [0]  = imgSpanishPage0;
-imgsSpanish  [1]  = imgSpanishPage1;
-imgsSpanish  [2]  = imgSpanishPage2;
-imgsSpanish  [3]  = imgSpanishPage3;
-imgsSpanish  [4]  = imgSpanishPage4;
-imgsSpanish  [5]  = imgSpanishPage5;
-imgsSpanish  [6]  = imgSpanishPage6;
-imgsSpanish  [7]  = imgSpanishPage7;
-imgsSpanish  [8]  = imgSpanishPage8;
-imgsSpanish  [9]  = imgSpanishPage9;
-
-/*******************************/
-
 //Catalan
 /*******************************/
 
-var idCatalan=2;
+var idCatalan=1;
 
 var imgCatalanPage0 = "res/page0.png";
 var imgCatalanPage1 = "res/page1.png";
@@ -263,6 +198,71 @@ imgsCatalan  [6]  = imgCatalanPage6;
 imgsCatalan  [7]  = imgCatalanPage7;
 imgsCatalan  [8]  = imgCatalanPage8;
 imgsCatalan  [9]  = imgCatalanPage9;
+
+/*******************************/
+
+//Spanish
+/*******************************/
+
+var idSpanish=2;
+
+var imgSpanishPage0 = "res/page0.png";
+var imgSpanishPage1 = "res/page1.png";
+var imgSpanishPage2 = "res/page2.png";
+var imgSpanishPage3 = "res/page3.png";
+var imgSpanishPage4 = "res/page4.png";
+var imgSpanishPage5 = "res/page5.png";
+var imgSpanishPage6 = "res/page6.png";
+var imgSpanishPage7 = "res/page7.png";
+var imgSpanishPage8 = "res/page8.png";
+var imgSpanishPage9 = "res/page9.png";
+
+var soundSpanishPage0= "res/page0_esES.wav";
+var soundSpanishPage1= "res/page1_esES.wav";
+var soundSpanishPage2= "res/page2_esES.wav";
+var soundSpanishPage3= "res/page3_esES.wav";
+var soundSpanishPage4= "res/page4_esES.wav";
+var soundSpanishPage5= "res/page5_esES.wav";
+var soundSpanishPage6= "res/page6_esES.wav";
+var soundSpanishPage7= "res/page7_esES.wav";
+var soundSpanishPage8= "res/page8_esES.wav";
+var soundSpanishPage9= "res/page9_esES.wav";
+
+var languageSpanish = new Array(pages);
+languageSpanish [0]  = "¿Dónde está Timy?";
+languageSpanish [1]  = "Lucy es una niña que tiene un peluche de muchos colores. ¡Se llama Timy!";
+languageSpanish [2]  = "Lucy desayuna con Timy y por la noche duerme con él.";
+languageSpanish [3]  = "Cada día, al volver de la escuela, va a la habitación a dar un beso a Timy.";
+languageSpanish [4]  = "- ¡Oh! ¡Oh! ¡Timy no está! – Lucy llora. - ¡Mami, papi, Timy no está en la habitación!\n¿Dónde está? ¿Qué le ha pasado?";
+languageSpanish [5]  = "Su mamá pregunta a Lucy dónde ha dejado a Timy esta mañana y Lucy, muy triste, contesta:\n- ¡En mi cama!";
+languageSpanish [6]  = "- ¡Ay, Lucy! – dice su mamá. - ¡Vamos a buscarlo! Pero pienso que debes ser más ordenada.";
+languageSpanish [7]  = "Cuando llegan a la habitación Timy no está en la cama y mamá  lo busca por la habitación.";
+languageSpanish [8]  = " ¡Mira! ¡Aquí tenemos a Timy, medio escondido o medio perdido! ¿Qué opinas, Lucy?";
+languageSpanish [9]  = "- Te quiero Timy – dice Lucy. Ahora, cada día, Lucy y Timy dedican algunos minutos a ordenar los juguetes.";
+
+var soundsSpanish = new Array(pages);
+soundsSpanish  [0]  = soundSpanishPage0;
+soundsSpanish [1]  = soundSpanishPage1;
+soundsSpanish [2]  = soundSpanishPage2;
+soundsSpanish [3]  = soundSpanishPage3;
+soundsSpanish [4]  = soundSpanishPage4;
+soundsSpanish [5]  = soundSpanishPage5;
+soundsSpanish [6]  = soundSpanishPage6;
+soundsSpanish [7]  = soundSpanishPage7;
+soundsSpanish [8]  = soundSpanishPage8;
+soundsSpanish [9]  = soundSpanishPage9;
+
+var imgsSpanish = new Array(pages);
+imgsSpanish  [0]  = imgSpanishPage0;
+imgsSpanish  [1]  = imgSpanishPage1;
+imgsSpanish  [2]  = imgSpanishPage2;
+imgsSpanish  [3]  = imgSpanishPage3;
+imgsSpanish  [4]  = imgSpanishPage4;
+imgsSpanish  [5]  = imgSpanishPage5;
+imgsSpanish  [6]  = imgSpanishPage6;
+imgsSpanish  [7]  = imgSpanishPage7;
+imgsSpanish  [8]  = imgSpanishPage8;
+imgsSpanish  [9]  = imgSpanishPage9;
 
 /*******************************/
 
@@ -724,30 +724,3 @@ imgsChinese  [9]  = imgChinesePage9;
 var languages = new Array(languageEnglish,languageCatalan,languageSpanish,languageGerman,languageArabic,languageBrazilian,languageFrench,languageItalian,languageJapanese,languageChinese);
 var sounds = new Array(soundsEnglish,soundsCatalan,soundsSpanish,soundsGerman,soundsArabic,soundsBrazilian,soundsFrench,soundsItalian,soundsJapanese,soundsChinese);
 var images = new Array(imgsEnglish,imgsCatalan,imgsSpanish,imgsGerman,imgsArabic,imgsBrazilian,imgsFrench,imgsItalian,imgsJapanese,imgsChinese);
-
-//Load Resources Control
-/*******************************/
-
-idLanguageSelected = idEnglish;
-
-var imgSelectedPage0 = images[idLanguageSelected][0];
-var imgSelectedPage1 = images[idLanguageSelected][1];
-var imgSelectedPage2 = images[idLanguageSelected][2];
-var imgSelectedPage3 = images[idLanguageSelected][3];
-var imgSelectedPage4 = images[idLanguageSelected][4];
-var imgSelectedPage5 = images[idLanguageSelected][5];
-var imgSelectedPage6 = images[idLanguageSelected][6];
-var imgSelectedPage7 = images[idLanguageSelected][7];
-var imgSelectedPage8 = images[idLanguageSelected][8];
-var imgSelectedPage9 = images[idLanguageSelected][9];
-
-var soundSelectedPage0= sounds[idLanguageSelected][0];
-var soundSelectedPage1= sounds[idLanguageSelected][1];
-var soundSelectedPage2= sounds[idLanguageSelected][2];
-var soundSelectedPage3= sounds[idLanguageSelected][3];
-var soundSelectedPage4= sounds[idLanguageSelected][4];
-var soundSelectedPage5= sounds[idLanguageSelected][5];
-var soundSelectedPage6= sounds[idLanguageSelected][6];
-var soundSelectedPage7= sounds[idLanguageSelected][7];
-var soundSelectedPage8= sounds[idLanguageSelected][8];
-var soundSelectedPage9= sounds[idLanguageSelected][9];

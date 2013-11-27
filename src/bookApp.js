@@ -344,83 +344,73 @@ var controllersLayer = cc.Layer.extend({
 
         /*Languages*/
         var countLanguages=1;
-        var menuItemImageArabian = cc.MenuItemImage.create(btnArabeNormal,btnArabeSelected,
+        var menuItemImageArabian = cc.MenuItemImage.create(btnArabicNormal,btnArabicSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idArabic);
             },this);
         menuItemImageArabian.setAnchorPoint(cc.p(0,0.5));
         menuItemImageArabian.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageBrazilian = cc.MenuItemImage.create(btnBrasilNormal,btnBrasilSelected,
+        var menuItemImageBrazilian = cc.MenuItemImage.create(btnBrazilianNormal,btnBrazilianSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idBrazilian);
             },this);
         menuItemImageBrazilian.setAnchorPoint(cc.p(0,0.5));
         menuItemImageBrazilian.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageSpanish = cc.MenuItemImage.create(btnEspanolNormal,btnEspanolSelected,
+        var menuItemImageSpanish = cc.MenuItemImage.create(btnSpanishNormal,btnSpanishSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idSpanish);
             },this);
         menuItemImageSpanish.setAnchorPoint(cc.p(0,0.5));
         menuItemImageSpanish.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageFrench = cc.MenuItemImage.create(btnFranceNormal,btnFranceSelected,
+        var menuItemImageFrench = cc.MenuItemImage.create(btnFrenchNormal,btnFrenchSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idFrench);
             },this);
         menuItemImageFrench.setAnchorPoint(cc.p(0,0.5));
         menuItemImageFrench.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageGerman = cc.MenuItemImage.create(btnHaitiNormal,btnHaitiSelected,
+        var menuItemImageGerman = cc.MenuItemImage.create(btnGermanNormal,btnGermanSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idGerman);
             },this);
         menuItemImageGerman.setAnchorPoint(cc.p(0,0.5));
         menuItemImageGerman.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageEnglish= cc.MenuItemImage.create(btnInglishNormal,btnInglishSelected,
+        var menuItemImageEnglish= cc.MenuItemImage.create(btnEnglishNormal,btnEnglishSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idEnglish);
             },this);
         menuItemImageEnglish.setAnchorPoint(cc.p(0,0.5));
         menuItemImageEnglish.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageCatalan = cc.MenuItemImage.create(btnIslandesNormal,btnIslandesSelected,
+        var menuItemImageCatalan = cc.MenuItemImage.create(btnCatalanNormal,btnCatalanSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idCatalan);
             },this);
         menuItemImageCatalan.setAnchorPoint(cc.p(0,0.5));
         menuItemImageCatalan.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
         var menuItemImageItalian = cc.MenuItemImage.create(btnItalianNormal,btnItalianSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idItalian);
             },this);
         menuItemImageItalian.setAnchorPoint(cc.p(0,0.5));
         menuItemImageItalian.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageJapanese = cc.MenuItemImage.create(btnJaponNormal,btnJaponSelected,
+        var menuItemImageJapanese = cc.MenuItemImage.create(btnJapaneseNormal,btnJapaneseSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idJapanese);
             },this);
 
         menuItemImageJapanese.setAnchorPoint(cc.p(0,0.5));
         menuItemImageJapanese.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
         countLanguages++;
-        var menuItemImageChinese = cc.MenuItemImage.create(btnXinaNormal,btnXinaSelected,
+        var menuItemImageChinese = cc.MenuItemImage.create(btnChineseNormal,btnChineseSelected,
             function () {
-                this.doSomethingToPressButton();
-                this.changeLanguage();
+                this.changeLanguage(idChinese);
             },this);
         menuItemImageChinese.setAnchorPoint(cc.p(0,0.5));
         menuItemImageChinese.setPosition(cc.p(size.width-btnPaddingWidth-((countLanguages*btnWidth)+ (countLanguages*5)),size.height-(((size.height-imgHeight)/2)/2)));
@@ -469,8 +459,13 @@ var controllersLayer = cc.Layer.extend({
             this.getChildByTag(menuSoundReplayTag).setTouchEnabled(false);
             this.getChildByTag(menuSoundReplayTag).runAction(cc.FadeOut.create(btnFadeTime));
         }
-    },changeLanguage: function(){
-
+    },changeLanguage: function(idLanguage){
+        idLanguageSelected = idLanguage;
+        this.doSomethingToPressButton();
+        this.doSomethingToChangeThePage();
+        currentPage=0;
+        var director = cc.Director.getInstance();
+        director.replaceScene(cc.TransitionProgressRadialCW.create(transitionTime,new bookScene()));
     }
 
 });

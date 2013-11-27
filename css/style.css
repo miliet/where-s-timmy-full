@@ -1,3 +1,7 @@
+body:after{
+    display:none;
+    content: url('../res/imgWebLandscape.png');
+}
 @font-face
 {
     font-family: 'ArialRoundedMTBold';
@@ -162,6 +166,10 @@ body, canvas, div
          display:block;
          visibility: visible;
      }
+     #landscape{
+         display:none;
+         visibility: hidden;
+     }
  }
 
  /* landscape */
@@ -170,5 +178,9 @@ body, canvas, div
      #portrait{
          display:none;
          visibility: hidden;
+     }
+     #landscape{
+         display:block;
+         visibility: visible;
      }
  }
