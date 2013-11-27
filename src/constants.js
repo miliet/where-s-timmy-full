@@ -359,17 +359,16 @@ var soundArabicPage8= "res/page8_arEG.m4a";
 var soundArabicPage9= "res/page9_arEG.m4a";
 
 var languageArabic = new Array(pages);
-languageArabic [0]  = "";
-languageArabic [1]  = "";
-languageArabic [2]  = "";
-languageArabic [3]  = "";
-languageArabic [4]  = "";
-languageArabic [5]  = "";
-languageArabic [6]  = "";
-languageArabic [7]  = "";
-languageArabic [8]  = "";
-languageArabic [9]  = "";
-languageArabic [10]  = "";
+languageArabic [0]  = "الخبز الساخن";
+languageArabic [1]  = "لوثي فتاة عمرها ثلاث سنوات";
+languageArabic [2]  = " عندما استيقظت، ذهبت الى المطبخ حيث تنتهي أمها من إخراج الخبز من الفرن.";
+languageArabic [3]  = "- هل تفوح من الخبز الساخن رائحة طيبة؟- قالت أمها. – نعم- أجابتها البنت، بدلع";
+languageArabic [4]  = "بينما لم تراها أمها، تناولت لوثي كسرة خبز، لكن بما أنه كان ساخنا، احُترقت. ";
+languageArabic [5]  = "- يا للهول ! كيف يحرق! عند سماع الصراخ، قامت الأم فورا بنجدتها.";
+languageArabic [6]  = "وضعت لها قليلا من الثلج على الأصبع، ملفوفا في قماش لتخفيف ألمها.";
+languageArabic [7]  = "- عليك أن لا تلمسي أبدا أشياء ساخنة. تحلّي بالصبر.";
+languageArabic [8]  = "وبعد بضع دقائق، أعطتها أمها شريحة كبيرة من الخبز مع الزبدة.";
+languageArabic [9]  = "- إنه لذيذ الآن، يا ماما!- قالت لوثي وهي سعيدة.";
 
 var soundsArabic = new Array(pages);
 soundsArabic  [0]  = soundArabicPage0;
