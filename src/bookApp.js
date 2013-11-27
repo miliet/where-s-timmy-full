@@ -290,15 +290,6 @@ var controllersLayer = cc.Layer.extend({
         menuSoundReplay.setTag(menuSoundReplayTag);
         this.addChild(menuSoundReplay, 0);
 
-        /*Logo*/
-        if (currentPage > 1)
-        {
-            var logoSprite=cc.Sprite.create(logo);
-            logoSprite.setAnchorPoint(cc.p(1,0.5));
-            logoSprite.setPosition(cc.p(size.width-btnPaddingWidth, size.height-(((size.height-imgHeight)/2)/2)));
-            this.addChild(logoSprite, 0);
-        }
-
         /*Backward*/
         if (currentPage > 0)
         {
