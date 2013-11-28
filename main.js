@@ -1,6 +1,6 @@
 /*For fix a bug*/
-var isMobile = 2;
-var bugSoundMobileCount=0
+var isMobile = false;
+var isBugSoundFixed=true;
 
 var cocos2dApp = cc.Application.extend({
     config:document['ccConfig'],
@@ -20,7 +20,10 @@ var cocos2dApp = cc.Application.extend({
         }
         /*For fix a bug*/
         if (cc.Application.getInstance().getTargetPlatform() == cc.TARGET_PLATFORM.MOBILE_BROWSER)
+        {
             isMobile=true;
+            isBugSoundFixed=false;
+        }
         else
             isMobile=false;
 

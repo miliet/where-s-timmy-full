@@ -33,18 +33,14 @@ var textLayer = cc.Layer.extend({
         this.owner=scene;
         this.labels = new Array();
         if(languages[this.owner.getCurrentIdLanguage()][currentPage]!="") this.textPrint(languages[this.owner.getCurrentIdLanguage()][currentPage]);
-        this.schedule(this.playWithDelay, transitionTime);
+        /*for fix a bug*/
+        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile && !isBugSoundFixed)){
+            this.schedule(this.playWithDelay, transitionTime);
+        }
         return true;
     },playWithDelay:function(dt){
-        /*For fix a mobile bug*/
-        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile && bugSoundMobileCount<2)){
-            this.owner.controllersL.playSoundLogistic();
-            this.unschedule(this.playWithDelay);
-        }else
-        {
-            cc.AudioEngine.getInstance().playMusic(soundEmpty);
-            isMobile++;
-        }
+        this.owner.controllersL.playSoundLogistic();
+        this.unschedule(this.playWithDelay);
     },textPrint:function(text) {
 
         var size = cc.Director.getInstance().getWinSize();
@@ -303,11 +299,10 @@ var controllersLayer = cc.Layer.extend({
 
 
         /*For fix a mobile bug*/
-        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile && bugSoundMobileCount<2)){
+        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile && !isBugSoundFixed)){
             menuSoundReplay.setOpacity(0.0);
             menuSoundReplay.setTouchEnabled(false);
-        } else
-            bugSoundMobileCount++;
+        }
         menuSoundReplay.setTag(menuSoundReplayTag);
         this.addChild(menuSoundReplay, 0);
 
@@ -503,7 +498,9 @@ var bookScene = cc.Scene.extend({
         this.textL= new textLayer();
         this.textL.init(this);
         this.addChild(this.textL,2);
-
+        /*for fix a bug*/
+        cc.AudioEngine.getInstance().playMusic(soundEmpty);
+        isBugSoundFixed=true;
     },getCurrentIdLanguage:function() {
         return idLanguageSelected;
     }
