@@ -1,9 +1,6 @@
 /*For fix a bug*/
-function isMobileFunc(){
-    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/).test(navigator.userAgent.toLowerCase());
-}
-var isMobile = isMobileFunc();
 var isFirstTime = true;
+var soundEmpty = "res/empty.m4a";
 
 //Normal Resources
 /*******************************/
@@ -61,7 +58,7 @@ var pages=10;
 var transitionTime=1.0;
 var btnPaddingWidth=10;
 var fntArialRoundedMTBoldStr="Arial Rounded MT Bold";
-var fntSize=24;
+var fntSize=22;
 var tickTime=1.0;
 var btnFadeTime=0.1;
 var idLanguageSelected=0;
@@ -165,15 +162,15 @@ var soundCatalanPage9= "res/page9_esCA.m4a";
 
 var languageCatalan = new Array(pages);
 languageCatalan [0]  = "ON ÉS EL TIMY?";
-languageCatalan [1]  = "La Lucy és una nena que té un peluix de molts colors. Es diu Timy!";
-languageCatalan [2]  = "La Lucy esmorza amb el Timy i a la nit dorm amb ell.";
-languageCatalan [3]  = "Cada dia, en tornar de l’escola, va a l’habitació a fer un petó al Timy.";
-languageCatalan [4]  = "– Oh! Oh! El Timy no hi és! – plora la Lucy.  – Mami, papi, el Timy no està a l’habitació! On està? Què li passa?";
-languageCatalan [5]  = "La seva mare pregunta a la Lucy on ha deixat el Timy aquest matí i la Lucy, molt trista, contesta:  – Al llit!";
-languageCatalan [6]  = "– Ai, Lucy! – diu la seva mare. – Anem a buscar-lo! Però penso que has de ser més ordenada.";
-languageCatalan [7]  = "Quan arriben a l’habitació el Timy no està al llit i la mare el busca per l’habitació.";
-languageCatalan [8]  = "- Mira! Aquí tenim el Timy, mig amagat o mig perdut! Què n’opines, Lucy?";
-languageCatalan [9]  = "– T’estimo Timy – diu la Lucy. Ara, cada dia, la Lucy i el Timy dediquen alguns minuts a endreçar les joguines.";
+languageCatalan [1]  = "La Lucy és una nena que té un peluix\nde molts colors. Es diu Timy!";
+languageCatalan [2]  = "La Lucy esmorza amb el Timy i\na la nit dorm amb ell.";
+languageCatalan [3]  = "Cada dia, en tornar de l’escola,\nva a l’habitació a fer un petó al Timy.";
+languageCatalan [4]  = "– Oh! Oh! El Timy no hi és! – plora la Lucy.\n– Mami, papi, el Timy no està a l’habitació!\nOn està? Què li passa?";
+languageCatalan [5]  = "La seva mare pregunta a la Lucy on ha deixat\nel Timy aquest matí i la Lucy, molt trista, contesta:\n– Al llit!";
+languageCatalan [6]  = "– Ai, Lucy! – diu la seva mare. – Anem a buscar-lo!\nPerò penso que has de ser més ordenada.";
+languageCatalan [7]  = "Quan arriben a l’habitació el Timy no està al llit\ni la mare el busca per l’habitació.";
+languageCatalan [8]  = "- Mira! Aquí tenim el Timy, mig amagat\no mig perdut! Què n’opines, Lucy?";
+languageCatalan [9]  = "– T’estimo Timy – diu la Lucy.\nAra, cada dia, la Lucy i el Timy dediquen\nalguns minuts a endreçar les joguines.";
 
 var soundsCatalan = new Array(pages);
 soundsCatalan  [0]  = soundCatalanPage0;
@@ -230,15 +227,15 @@ var soundSpanishPage9= "res/page9_esES.m4a";
 
 var languageSpanish = new Array(pages);
 languageSpanish [0]  = "¿Dónde está Timy?";
-languageSpanish [1]  = "Lucy es una niña que tiene un peluche de muchos colores. ¡Se llama Timy!";
-languageSpanish [2]  = "Lucy desayuna con Timy y por la noche duerme con él.";
-languageSpanish [3]  = "Cada día, al volver de la escuela, va a la habitación a dar un beso a Timy.";
-languageSpanish [4]  = "- ¡Oh! ¡Oh! ¡Timy no está! – Lucy llora. - ¡Mami, papi, Timy no está en la habitación!\n¿Dónde está? ¿Qué le ha pasado?";
-languageSpanish [5]  = "Su mamá pregunta a Lucy dónde ha dejado a Timy esta mañana y Lucy, muy triste, contesta:\n- ¡En mi cama!";
-languageSpanish [6]  = "- ¡Ay, Lucy! – dice su mamá. - ¡Vamos a buscarlo! Pero pienso que debes ser más ordenada.";
-languageSpanish [7]  = "Cuando llegan a la habitación Timy no está en la cama y mamá  lo busca por la habitación.";
-languageSpanish [8]  = " ¡Mira! ¡Aquí tenemos a Timy, medio escondido o medio perdido! ¿Qué opinas, Lucy?";
-languageSpanish [9]  = "- Te quiero Timy – dice Lucy. Ahora, cada día, Lucy y Timy dedican algunos minutos a ordenar los juguetes.";
+languageSpanish [1]  = "Lucy es una niña que tiene un peluche\n de muchos colores. ¡Se llama Timy!";
+languageSpanish [2]  = "Lucy desayuna con Timy y\npor la noche duerme con él.";
+languageSpanish [3]  = "Cada día, al volver de la escuela,\nva a la habitación a dar un beso a Timy.";
+languageSpanish [4]  = "- ¡Oh! ¡Oh! ¡Timy no está! – Lucy llora.\n- ¡Mami, papi, Timy no está en la habitación!\n¿Dónde está? ¿Qué le ha pasado?";
+languageSpanish [5]  = "Su mamá pregunta a Lucy dónde ha dejado\na Timy esta mañana y Lucy, muy triste, contesta:\n- ¡En mi cama!";
+languageSpanish [6]  = "- ¡Ay, Lucy! – dice su mamá. - ¡Vamos a buscarlo!\nPero pienso que debes ser más ordenada.";
+languageSpanish [7]  = "Cuando llegan a la habitación Timy no está\nen la cama y mamá  lo busca por la habitación.";
+languageSpanish [8]  = " ¡Mira! ¡Aquí tenemos a Timy, medio escondido\no medio perdido! ¿Qué opinas, Lucy?";
+languageSpanish [9]  = "- Te quiero Timy – dice Lucy.\nAhora, cada día, Lucy y Timy dedican\nalgunos minutos a ordenar los juguetes.";
 
 var soundsSpanish = new Array(pages);
 soundsSpanish  [0]  = soundSpanishPage0;
@@ -295,15 +292,15 @@ var soundGermanPage9= "res/page9_deDE.m4a";
 
 var languageGerman = new Array(pages);
 languageGerman [0]  = "Wo ist Timmy?";
-languageGerman [1]  = "Lucy ist ein Mädchen, das ein buntes Plüschtier hat. Es heißt Timmy! ";
-languageGerman [2]  = "Lucy frühstückt mit Timmy und nachts schläft sie mit ihm.";
-languageGerman [3]  = "Jeden Tag, wenn sie aus der Schule zurück ist, geht sie in ihr Zimmer und gibt Timmy einen Kuss.";
-languageGerman [4]  = "„Oh! Oh! Timmy ist nicht da!“ Lucy weint. „Mami, Papi, Timmy ist nicht im Zimmer! Wo ist er? Was ist mit ihm passiert?“  ";
+languageGerman [1]  = "Lucy ist ein Mädchen, das ein buntes\nPlüschtier hat. Es heißt Timmy! ";
+languageGerman [2]  = "Lucy frühstückt mit Timmy und\nnachts schläft sie mit ihm.";
+languageGerman [3]  = "Jeden Tag, wenn sie aus der Schule zurück ist,\ngeht sie in ihr Zimmer und gibt Timmy einen Kuss.";
+languageGerman [4]  = "„Oh! Oh! Timmy ist nicht da!“ Lucy weint.\n„Mami, Papi, Timmy ist nicht im Zimmer!\nWo ist er? Was ist mit ihm passiert?“  ";
 languageGerman [5]  = "Ihre Mutter fragt Lucy, wo sie Timmy heute Morgen gelassen hat und Lucy antwortet sehr traurig: „In meinem Bett!“";
-languageGerman [6]  = "„Ach, Lucy!“, sagt ihre Mama. „Lass uns nach ihm suchen! Aber ich denke, dass du ordentlicher sein solltest.“ ";
-languageGerman [7]  = "Als sie in das Zimmer kommen, ist Timmy nicht im Bett und Mama sucht ihn im Zimmer.";
-languageGerman [8]  = "„Schau! Hier ist Timmy ja, halb versteckt oder halb verloren! Was meinst du, Lucy?“";
-languageGerman [9]  = "„Ich hab dich lieb, Timmy“, sagt Lucy. Von nun an räumen Lucy und Timmy jeden Tag ein paar Minuten die Spielzeuge auf.";
+languageGerman [6]  = "„Ach, Lucy!“, sagt ihre Mama. „Lass uns nach ihm suchen!\nAber ich denke, dass du ordentlicher sein solltest.“ ";
+languageGerman [7]  = "Als sie in das Zimmer kommen, ist Timmy nicht im Bett und Mama\nsucht ihn im Zimmer.";
+languageGerman [8]  = "„Schau! Hier ist Timmy ja, halb versteckt oder halb verloren!\nWas meinst du, Lucy?“";
+languageGerman [9]  = "„Ich hab dich lieb, Timmy“, sagt Lucy.\nVon nun an räumen Lucy und Timmy jeden\nTag ein paar Minuten die Spielzeuge auf.";
 
 var soundsGerman = new Array(pages);
 soundsGerman  [0]  = soundGermanPage0;
@@ -424,15 +421,15 @@ var soundBrazilianPage9= "res/page9_ptBR.m4a";
 
 var languageBrazilian = new Array(pages);
 languageBrazilian [0]  = "Onde está Timy?";
-languageBrazilian [1]  = "Lucy é uma menina que tem um boneco de pelúcia de muitas cores. Seu nome é Timy!";
-languageBrazilian [2]  = "Lucy toma o café da manhã com Timy e pela noite dorme com ele.";
-languageBrazilian [3]  = "Cada dia, ao voltar da escola, vai ao quarto para dar um beijo no Timy.";
-languageBrazilian [4]  = "- Oh! Oh! ¡Timy não está! – Lucy chora. - Mamãe, papai, o Timy não está no quarto! Cadê ele? O que aconteceu com ele?";
-languageBrazilian [5]  = "A sua mãe pergunta a Lucy onde ela deixou o Timy essa manhã e Lucy, muito triste, responde: - Na minha cama!";
-languageBrazilian [6]  = " Ah, Lucy! – diz a sua mãe. - Vamos procurá-lo! Mas acho que você deve ser mais organizada.";
-languageBrazilian [7]  = "Quando chegam ao quarto Timy não está na cama e a mãe o procura pelo quarto.";
-languageBrazilian [8]  = "- Olha! Aqui temos a Timy, meio escondido ou meio perdido! O quê você acha, Lucy?";
-languageBrazilian [9]  = "Te amo Timy – diz Lucy. Agora, cada dia, Lucy e Timy dedicam alguns minutos a arrumar os brinquedos.";
+languageBrazilian [1]  = "Lucy é uma menina que tem um boneco de pelúcia\nde muitas cores. Seu nome é Timy!";
+languageBrazilian [2]  = "Lucy toma o café da manhã com Timy e\npela noite dorme com ele.";
+languageBrazilian [3]  = "Cada dia, ao voltar da escola,\nvai ao quarto para dar um beijo no Timy.";
+languageBrazilian [4]  = "- Oh! Oh! ¡Timy não está! – Lucy chora.\n- Mamãe, papai, o Timy não está no quarto!\nCadê ele? O que aconteceu com ele?";
+languageBrazilian [5]  = "A sua mãe pergunta a Lucy onde ela deixou\no Timy essa manhã e Lucy, muito triste, responde:\n- Na minha cama!";
+languageBrazilian [6]  = " Ah, Lucy! – diz a sua mãe. - Vamos procurá-lo!\nMas acho que você deve ser mais organizada.";
+languageBrazilian [7]  = "Quando chegam ao quarto Timy não está\nna cama e a mãe o procura pelo quarto.";
+languageBrazilian [8]  = "- Olha! Aqui temos a Timy, meio escondido\nou meio perdido! O quê você acha, Lucy?";
+languageBrazilian [9]  = "Te amo Timy – diz Lucy.\nAgora, cada dia, Lucy e Timy dedicam\nalguns minutos a arrumar os brinquedos.";
 
 var soundsBrazilian = new Array(pages);
 soundsBrazilian  [0]  = soundBrazilianPage0;
@@ -476,28 +473,28 @@ var imgFrenchPage7 = "res/page7.png";
 var imgFrenchPage8 = "res/page8.png";
 var imgFrenchPage9 = "res/page9.png";
 
-var soundFrenchPage0= "res/page0_esES.m4a";
-var soundFrenchPage1= "res/page1_esES.m4a";
-var soundFrenchPage2= "res/page2_esES.m4a";
-var soundFrenchPage3= "res/page3_esES.m4a";
-var soundFrenchPage4= "res/page4_esES.m4a";
-var soundFrenchPage5= "res/page5_esES.m4a";
-var soundFrenchPage6= "res/page6_esES.m4a";
-var soundFrenchPage7= "res/page7_esES.m4a";
-var soundFrenchPage8= "res/page8_esES.m4a";
-var soundFrenchPage9= "res/page9_esES.m4a";
+var soundFrenchPage0= "res/page0_frFr.m4a";
+var soundFrenchPage1= "res/page1_frFr.m4a";
+var soundFrenchPage2= "res/page2_frFr.m4a";
+var soundFrenchPage3= "res/page3_frFr.m4a";
+var soundFrenchPage4= "res/page4_frFr.m4a";
+var soundFrenchPage5= "res/page5_frFr.m4a";
+var soundFrenchPage6= "res/page6_frFr.m4a";
+var soundFrenchPage7= "res/page7_frFr.m4a";
+var soundFrenchPage8= "res/page8_frFr.m4a";
+var soundFrenchPage9= "res/page9_frFr.m4a";
 
 var languageFrench = new Array(pages);
 languageFrench [0]  = "¿Où est Timy?";
-languageFrench [1]  = "Lucy est une fille qui a une peluche de plusieurs couleurs. ¡Elle s´appelle Timy!";
-languageFrench [2]  = "Lucy prend le petit déjeuner avec Timy et dort avec elle la nuit.";
-languageFrench [3]  = "Chaque jour, au retour de l´école, va à la chambre pour donner un bisou à Timy.";
-languageFrench [4]  = "- ¡Oh! ¡Oh! ¡Timy n´est pas là! – Lucy pleure. - ¡Mamie, papi, Timy n´est pas dans la chambre! ¿Où est elle? ¿Qu´est ce qu´il lui est arrivé?";
-languageFrench [5]  = "Sa maman demande à Lucy où elle a laissé Timy ce matin et Lucy, très triste, répond: - ¡Dans mon lit!";
-languageFrench [6]  = "- ¡Aïe, Lucy! – dit sa maman. - ¡Allons la chercher! Mais je pense que tu dois être plus ordonnée.";
-languageFrench [7]  = "Quand elles arrivent à la chambre Timy n´est pas dans le lit et maman la cherche dans la chambre.";
-languageFrench [8]  = "¡Regarde! ¡Voici Timy, moitié cachée ou moitié perdue! ¿Que penses-tu, Lucy?";
-languageFrench [9]  = "- Je t´aime Timy – dit Lucy. Maintenant, chaque jour, Lucy et Timy consacrent quelques minutes à ranger les jouets.";
+languageFrench [1]  = "Lucy est une fille qui a une peluche\nde plusieurs couleurs. ¡Elle s´appelle Timy!";
+languageFrench [2]  = "Lucy prend le petit déjeuner avec Timy\net dort avec elle la nuit.";
+languageFrench [3]  = "Chaque jour, au retour de l´école,\nva à la chambre pour donner un bisou à Timy.";
+languageFrench [4]  = "- ¡Oh! ¡Oh! ¡Timy n´est pas là! – Lucy pleure.\n- ¡Mamie, papi, Timy n´est pas dans la chambre!\n¿Où est elle? ¿Qu´est ce qu´il lui est arrivé?";
+languageFrench [5]  = "Sa maman demande à Lucy où elle a laissé Timy\nce matin et Lucy, très triste, répond:\n- ¡Dans mon lit!";
+languageFrench [6]  = "- ¡Aïe, Lucy! – dit sa maman. - ¡Allons la chercher!\nMais je pense que tu dois être plus ordonnée.";
+languageFrench [7]  = "Quand elles arrivent à la chambre Timy n´est pas\ndans le lit et maman la cherche dans la chambre.";
+languageFrench [8]  = "¡Regarde! ¡Voici Timy, moitié cachée\nou moitié perdue! ¿Que penses-tu, Lucy?";
+languageFrench [9]  = "- Je t´aime Timy – dit Lucy.\nMaintenant, chaque jour, Lucy et Timy consacrent\nquelques minutes à ranger les jouets.";
 
 var soundsFrench = new Array(pages);
 soundsFrench  [0]  = soundFrenchPage0;
@@ -554,15 +551,15 @@ var soundItalianPage9= "res/page9_itIT.m4a";
 
 var languageItalian = new Array(pages);
 languageItalian [0]  = "Dov’è Timy?";
-languageItalian [1]  = "Lucy è una bambina che ha un peluche di molti colori. Si chiama Timy!";
-languageItalian [2]  = "Lucy fa colazione con Timy e di notte dorme con lui.";
-languageItalian [3]  = "Tutti i giorni, tornando da scuola, va in camera sua a dare un bacio a Timy.";
-languageItalian [4]  = "- Oh! Oh! Timy non c’è! – Lucy piange. - Mamma, papà, Timy non è in camera! Dov’è? Cosa gli è successo?";
-languageItalian [5]  = "La mamma chiede a Lucy dove ha lasciato Timy questa mattina e Lucy, molto triste, risponde: - Sul mio letto!";
-languageItalian [6]  = "- Ah, Lucy! – dice la mamma. - Andiamo a cercarlo! Ma penso che dovresti essere più ordinata.";
-languageItalian [7]  = "Quando arrivano in camera, Timy non è sul letto e la mamma lo cerca per tutta la camera.";
-languageItalian [8]  = "Guarda! Ecco qui Timy, un po’ nascosto e un po’ smarrito! Che cosa pensi, Lucy?";
-languageItalian [9]  = "- Ti voglio bene, Timy – dice Lucy. Da oggi, tutti i giorni, Lucy e Timy dedicano qualche minuto a riordinare i giochi.";
+languageItalian [1]  = "Lucy è una bambina che ha un peluche\ndi molti colori. Si chiama Timy!";
+languageItalian [2]  = "Lucy fa colazione con Timy e\ndi notte dorme con lui.";
+languageItalian [3]  = "Tutti i giorni, tornando da scuola,\nva in camera sua a dare un bacio a Timy.";
+languageItalian [4]  = "- Oh! Oh! Timy non c’è! – Lucy piange.\n- Mamma, papà, Timy non è in camera!\nDov’è? Cosa gli è successo?";
+languageItalian [5]  = "La mamma chiede a Lucy dove ha lasciato\nTimy questa mattina e Lucy, molto triste, risponde:\n- Sul mio letto!";
+languageItalian [6]  = "- Ah, Lucy! – dice la mamma. - Andiamo a cercarlo!\nMa penso che dovresti essere più ordinata.";
+languageItalian [7]  = "Quando arrivano in camera, Timy non è\nsul letto e la mamma lo cerca per tutta la camera.";
+languageItalian [8]  = "Guarda! Ecco qui Timy, un po’ nascosto e\nun po’ smarrito! Che cosa pensi, Lucy?";
+languageItalian [9]  = "- Ti voglio bene, Timy – dice Lucy.\nDa oggi, tutti i giorni, Lucy e Timy dedicano\nqualche minuto a riordinare i giochi.";
 
 var soundsItalian = new Array(pages);
 soundsItalian  [0]  = soundItalianPage0;
@@ -619,15 +616,15 @@ var soundJapanesePage9= "res/page9_jaJP.m4a";
 
 var languageJapanese = new Array(pages);
 languageJapanese [0]  = "ティミーはどこにいる？";
-languageJapanese [1]  = "ルーシーはいろいろないろをしたぬいぐるみをもっているおんなのこです。ぬいぐるみのなまえはティミーです。";
-languageJapanese [2]  = "ルーシーはティミーといっしょにあさごはんをたべ、よるはいっしょにねます。";
-languageJapanese [3]  = "「えー！！ティミーがいないの！！」と、ルーシーはないています。";
-languageJapanese [4]  = "「おかあさん、おとうさん、ティミーがへやにいないの！どこにいるの？どうしちゃったの？」";
-languageJapanese [5]  = "「けさどこにティミーをおいていったの？」とおかあさんがルーシーにきくと、ルーシーがかなしそうにこたえます。「わたしのベッドのうえよ！」";
-languageJapanese [6]  = "「じゃあ、ルーシー、いっしょにさがしてみましょう！でも、あなたはもっとおかたづけをしなければいけないわね。」";
-languageJapanese [7]  = "へやにいってもティミーはベッドにいないので、おかあさんはへやじゅうをさがしてみます。";
-languageJapanese [8]  = "「ほら、ここにティミーがいるわよ、はんぶんだけかくれているわ、それともはんぶんだけまいごになっているのかしら！ルーシー、どうおもう？」";
-languageJapanese [9]  = "「ティミー、だいすきよ。」とルーシーがいいます。これからまいにち、ほんのすこしのあいだルーシーとティミーはおもちゃをかたづけることにします。";
+languageJapanese [1]  = "ルーシーはいろいろないろをしたぬいぐるみをもっ\nているおんなのこですぬいぐるみのなまえはティミーです。";
+languageJapanese [2]  = "ルーシーはティミーといっしょにあさごはんをたべ、\nよるはいっしょにねます。";
+languageJapanese [3]  = "まいにちがっこうからかえってくると、\nへやにいってティミーにキスをします。";
+languageJapanese [4]  = "「えー！！ティミーがいないの！！」と、ルーシーはないています。\n「おかあさん、おとうさん、ティミーがへやにいないの！\nどこにいるの？どうしちゃったの？」";
+languageJapanese [5]  = "「けさどこにティミーをおいていったの？ とおかあさんがルーシーにきくと、\nルーシーがかなしそうにこたえます。\n「わたしのベッドのうえよ！」";
+languageJapanese [6]  = "「じゃあ、ルーシー、いっしょにさがしてみましょう！\nでも、あなたはもっとおかたづけをしなければいけないわね。」";
+languageJapanese [7]  = "へやにいってもティミーはベッドにいないので、\nおかあさんはへやじゅうをさがしてみます。";
+languageJapanese [8]  = "「ほら、ここにティミーがいるわよ、はんぶんだけかくれているわ,\nそれともはんぶんだけまいごになっているのかしら！ルーシー,\nどうおもう？」";
+languageJapanese [9]  = "「ティミー、だいすきよ。」とルーシーがいいます。これからまいにち、\nほんのすこしのあいだルーシーとティミー\nはおもちゃをかたづけることにします。";
 
 var soundsJapanese = new Array(pages);
 soundsJapanese  [0]  = soundJapanesePage0;
@@ -684,15 +681,15 @@ var soundChinesePage9= "res/page9_zhCN.m4a";
 
 var languageChinese = new Array(pages);
 languageChinese [0]  = "提米在哪儿？";
-languageChinese [1]  = "露西是一个可爱的小姑娘，她有一支绒毛玩具熊，颜色鲜艳。它叫提米！";
-languageChinese [2]  = "露西每天和提米一起吃早饭，晚上和它一起上床去睡觉。";
-languageChinese [3]  = "露西每天从学校回来的第一件事，就是回房间亲吻一下提米。";
-languageChinese [4]  = "-噢！噢！提米不在！---露西开始哭起来。-妈妈、爸爸，提米不在房间里！它在哪儿？它怎么了？";
-languageChinese [5]  = "妈妈问露西早上把提米放在了什么地方，露西非常伤心地回答说：“放在了我的床上！”";
-languageChinese [6]  = "-“哎，露西！”妈妈说。“我们去找找看！我觉得你应该整理一下你的房间了”。";
-languageChinese [7]  = "她们走进房间的时候，提米不在床上，妈妈在房间里找了找。";
-languageChinese [8]  = "-“你看，提米在这儿，身体的一半藏了起来、一半露了出来！你觉得怎么样，露西？”";
-languageChinese [9]  = "-“我爱你提米”，露西说。现在每天露西和提米都会花几分钟的时间来整理一下玩具。";
+languageChinese [1]  = "露西是一个可爱的小姑娘，\n她有一支绒毛玩具熊，颜色鲜艳。它叫提米！";
+languageChinese [2]  = "露西每天和提米一起吃早饭，\n晚上和它一起上床去睡觉。";
+languageChinese [3]  = "露西每天从学校回来的第一件事，\n就是回房间亲吻一下提米。";
+languageChinese [4]  = "-噢！噢！提米不在！---露西开始哭起来。\n-妈妈、爸爸，提米不在房间里！\n它在哪儿？它怎么了？";
+languageChinese [5]  = "妈妈问露西早上把提米放在了什么地方，\n露西非常伤心地回答说：\n“放在了我的床上！”";
+languageChinese [6]  = "-“哎，露西！”妈妈说。“我们去找找看！\n我觉得你应该整理一下你的房间了”。";
+languageChinese [7]  = "她们走进房间的时候，提米不在床上，\n妈妈在房间里找了找。";
+languageChinese [8]  = "-“你看，提米在这儿，身体的一半藏了起来、\n一半露了出来！你觉得怎么样，露西？”";
+languageChinese [9]  = "-“我爱你提米”，露西说。\n现在每天露西和提米都会花几分钟的时间来整理一下玩具。";
 
 var soundsChinese = new Array(pages);
 soundsChinese  [0]  = soundChinesePage0;

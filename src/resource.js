@@ -62,6 +62,7 @@ var g_ressources = [
     //bgm
 
     //effect
+    {src:soundEmpty},
     {src:soundBtnStandard},
     {src:soundEnglishPage0},
     {src:soundEnglishPage1},

@@ -1,3 +1,7 @@
+/*For fix a bug*/
+var isMobile = 2;
+var bugSoundMobileCount=0
+
 var cocos2dApp = cc.Application.extend({
     config:document['ccConfig'],
     ctor:function (scene) {
@@ -14,6 +18,12 @@ var cocos2dApp = cc.Application.extend({
             alert("Browser doesn't support Canvas or WebGL");
             return false;
         }
+        /*For fix a bug*/
+        if (cc.Application.getInstance().getTargetPlatform() == cc.TARGET_PLATFORM.MOBILE_BROWSER)
+            isMobile=true;
+        else
+            isMobile=false;
+
         // initialize director
         var director = cc.Director.getInstance();
         var designSize = cc.EGLView.getInstance().getFrameSize();

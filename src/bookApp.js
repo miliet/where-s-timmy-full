@@ -37,9 +37,13 @@ var textLayer = cc.Layer.extend({
         return true;
     },playWithDelay:function(dt){
         /*For fix a mobile bug*/
-        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile)){
+        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile && bugSoundMobileCount<2)){
             this.owner.controllersL.playSoundLogistic();
             this.unschedule(this.playWithDelay);
+        }else
+        {
+            cc.AudioEngine.getInstance().playMusic(soundEmpty);
+            isMobile++;
         }
     },textPrint:function(text) {
 
@@ -175,17 +179,33 @@ var textLayer = cc.Layer.extend({
                 //Center horizontally
                 x=(size.width/2)-(totalWidth/2);
                 m=mm;
-                for (j in lines[i]){
+                //Arabic
+                if(this.owner.getCurrentIdLanguage()==idArabic)
+                {
+                    for (j in lines[i]){
+                        this.labels[lines[i].length-m-1].setAnchorPoint(cc.p(0,1));
+                        this.labels[lines[i].length-m-1].setPosition(cc.p(x,y));
 
-                    this.labels[m].setAnchorPoint(cc.p(0,1));
-                    this.labels[m].setPosition(cc.p(x,y));
+                        this.setLabelColorStandard(this.labels[lines[i].length-m-1].getTag()-1);
 
-                    this.setLabelColorStandard(this.labels[m].getTag()-1);
+                        this.addChild(this.labels[lines[i].length-m-1]);
+                        x=x+this.labels[lines[i].length-m-1].getContentSize().width;
+                        x=x+charWidth;
+                        m++;
+                    }
+                } else{
+                    for (j in lines[i]){
 
-                    this.addChild(this.labels[m]);
-                    x=x+this.labels[m].getContentSize().width;
-                    x=x+charWidth;
-                    m++;
+                        this.labels[m].setAnchorPoint(cc.p(0,1));
+                        this.labels[m].setPosition(cc.p(x,y));
+
+                        this.setLabelColorStandard(this.labels[m].getTag()-1);
+
+                        this.addChild(this.labels[m]);
+                        x=x+this.labels[m].getContentSize().width;
+                        x=x+charWidth;
+                        m++;
+                    }
                 }
                 y=y-charHeight;
             }
@@ -283,10 +303,11 @@ var controllersLayer = cc.Layer.extend({
 
 
         /*For fix a mobile bug*/
-        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile)){
+        if (!(currentPage==0 && soundStatus && isFirstTime && isMobile && bugSoundMobileCount<2)){
             menuSoundReplay.setOpacity(0.0);
             menuSoundReplay.setTouchEnabled(false);
-        }
+        } else
+            bugSoundMobileCount++;
         menuSoundReplay.setTag(menuSoundReplayTag);
         this.addChild(menuSoundReplay, 0);
 
