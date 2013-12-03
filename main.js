@@ -29,11 +29,14 @@ var cocos2dApp = cc.Application.extend({
 
         // initialize director
         var director = cc.Director.getInstance();
+        var canvas = document.getElementById('gameCanvas'),context = canvas.getContext('2d');
         var designSize = cc.EGLView.getInstance().getFrameSize();
+        designSize.width=canvas.width;
+        designSize.height=canvas.height;
         var resourceSize = cc.size(1024, 768);
-
-        director.setContentScaleFactor(resourceSize.width / designSize.width);
-        cc.EGLView.getInstance().setDesignResolutionSize(designSize.width, designSize.height, cc.RESOLUTION_POLICY.SHOW_ALL);
+        var scale = (resourceSize.width / designSize.width);
+        director.setContentScaleFactor(scale);
+        cc.EGLView.getInstance().setDesignResolutionSize(designSize.width*scale, designSize.height*scale, cc.RESOLUTION_POLICY.SHOW_ALL);
         // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
         //director.enableRetinaDisplay(true);
 
