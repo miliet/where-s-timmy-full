@@ -161,7 +161,7 @@ var soundCatalanPage8= "res/page8_esCA.m4a";
 var soundCatalanPage9= "res/page9_esCA.m4a";
 
 var languageCatalan = new Array(pages);
-languageCatalan [0]  = "ON ÉS EL TIMY?";
+languageCatalan [0]  = "On és el Timy?";
 languageCatalan [1]  = "La Lucy és una nena que té un peluix\nde molts colors. Es diu Timy!";
 languageCatalan [2]  = "La Lucy esmorza amb el Timy i\na la nit dorm amb ell.";
 languageCatalan [3]  = "Cada dia, en tornar de l’escola,\nva a l’habitació a fer un petó al Timy.";
@@ -616,7 +616,7 @@ var soundJapanesePage9= "res/page9_jaJP.m4a";
 
 var languageJapanese = new Array(pages);
 languageJapanese [0]  = "ティミーはどこにいる？";
-languageJapanese [1]  = "ルーシーはいろいろないろをしたぬいぐるみをもっ\nているおんなのこですぬいぐるみのなまえはティミーです。";
+languageJapanese [1]  = "ルーシーはいろいろないろをしたぬいぐるみをもっ\nているおんなのこです。ぬいぐるみのなまえはティミーです。";
 languageJapanese [2]  = "ルーシーはティミーといっしょにあさごはんをたべ、\nよるはいっしょにねます。";
 languageJapanese [3]  = "まいにちがっこうからかえってくると、\nへやにいってティミーにキスをします。";
 languageJapanese [4]  = "「えー！！ティミーがいないの！！」と、ルーシーはないています。\n「おかあさん、おとうさん、ティミーがへやにいないの！\nどこにいるの？どうしちゃったの？」";

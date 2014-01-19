@@ -82,6 +82,23 @@ var textLayer = cc.Layer.extend({
             }
         }
 
+        //Arabic
+        if(this.owner.getCurrentIdLanguage()==idArabic)
+        {
+            for (i in words)
+            {
+                if (words[i].length>1)
+                {
+                    var last = words[i][words[i].length-1];
+                    if(last=="." || last=="،" || last=="!" || last == "-" )
+                    {
+                        var substring = words[i].substring(0,words[i].length-1);
+                        words[i]=last+substring;
+                    }
+                }
+            }
+        }
+
         m=0;
         for (i in words)
         {
